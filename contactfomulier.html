@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Levi's Internet Hulp</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var forms = document.getElementsByTagName('form');
+      for (var i = 0; i < forms.length; i++) {
+        forms[i].addEventListener('invalid', function(event) {
+          event.preventDefault();
+          var invalidFields = this.querySelectorAll(':invalid');
+          var message = 'Gelieve de volgende velden in te vullen:';
+          for (var j = 0; j < invalidFields.length; j++) {
+            message += ' ' + invalidFields[j].getAttribute('name');
+          }
+          alert(message);
+        }, true);
+      }
+    });
+  </script>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-image">
+    <img src="logo.png" alt="Mijn Logo" width="100px" height="100px">
+  </div>
+  <h1 style="color: black;">Contact</h1>
+</header>
+
+<div class="appel">
+  <h2>Contacteer mij</h2>
+  <form
+  action="https://formspree.io/f/mjvnrygl"
+  method="POST"
+>
+    <label for="naam">Naam:</label><br>
+    <input type="text" id="naam" name="naam" required><br>
+    <label for="telefoonnummer">Telefoonnummer:</label><br>
+    <input type="tel" id="telefoonnummer" name="telefoonnummer" required><br>
+    <label for="bericht">Bericht:</label><br>
+    <textarea id="bericht" name="bericht" rows="4" required></textarea><br><br>
+    <input type="submit" value="Verstuur">
+  </form>
+</div>
+
+<div class="footer">
+  <footer class="footer">
+    <img src="le.png" alt="Foto van alle contactwijzen" width="300" height="100">
+    <p>Copyright © 2023 Levi's Internet Hulp</p>
+    <p>smartphone<br> laptop<br>smart-tv</p>
+  </footer>
+</div>
+
+</body>
+</html>
